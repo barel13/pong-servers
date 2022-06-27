@@ -37,5 +37,30 @@ function parseCommand(arguments) {
     }
 }
 
-server1.listen(basePort);
-server2.listen(basePort + 1);
+function startServers(timeout) {
+    const serverResponse = (req, __) => {
+        const port = req.get("host").split(":")[1];
+        pingPong(timeout, port);
+    };
+
+    server1.get('/', serverResponse);
+    server2.get('/', serverResponse);
+    server1.listen(basePort);
+    server2.listen(basePort + 1);
+}
+
+function pingPong(timeout, port) {
+console.log("Ping pong")
+}
+
+function pauseServers() {
+
+}
+
+function resumeServers() {
+
+}
+
+function stopServers() {
+
+}
