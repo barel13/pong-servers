@@ -12,6 +12,10 @@ if (args.length === 0) {
     parseCommand(args);
 }
 
+/**
+ * Parse the options from the command line.
+ * @param arguments the arguments passed from the command line.
+ */
 function parseCommand(arguments) {
     const command = arguments[0].toLowerCase();
     switch (command) {
