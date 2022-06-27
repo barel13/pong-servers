@@ -30,7 +30,11 @@ function parseCommand(arguments) {
     const command = arguments[0].toLowerCase();
     switch (command) {
         case 'start':
-            startServers(parseInt(arguments[1]));
+            if (arguments.length > 1) {
+                startServers(parseInt(arguments[1]));
+            } else {
+                console.log("Please enter the timeout between the messages.");
+            }
             break;
         case 'pause':
             pauseServers();
